@@ -10,6 +10,7 @@
      (auto-completion :variables
                       auto-completion-enable-sort-by-usage t)
      (c-c++ :variables
+            c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t)
      csv
      dash

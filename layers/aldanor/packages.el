@@ -1,6 +1,5 @@
 (defvar aldanor-packages
   '(
-    c-c++
     company
     evil
     flycheck
@@ -10,9 +9,6 @@
     ))
 
 (defvar aldanor-excluded-packages '())
-
-(defun aldanor/post-init-c-c++ ()
-  (setq c-c++-default-mode-for-headers 'c++-mode))
 
 (defun aldanor/post-init-company ()
   (add-hook 'evil-normal-state-entry-hook 'company-abort))
