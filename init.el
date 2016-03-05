@@ -9,6 +9,8 @@
      )
    dotspacemacs-configuration-layers
    '(
+     aldanor-backup
+     aldanor-config
      (auto-completion :variables
                       auto-completion-enable-sort-by-usage t)
      (c-c++ :variables
