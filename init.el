@@ -9,8 +9,7 @@
      )
    dotspacemacs-configuration-layers
    '(
-     aldanor-backup
-     aldanor-config
+     ;; Spacemacs layers.
      (auto-completion :variables
                       auto-completion-enable-sort-by-usage t)
      (c-c++ :variables
@@ -33,9 +32,8 @@
      org
      osx
      (python :variables
-             python-test-runner 'pytest
-             python-fill-column 99)
-     react
+             python-fill-column 99
+             python-test-runner 'pytest)
      rust
      search-engine
      (shell :variables
@@ -46,7 +44,11 @@
      syntax-checking
      themes-megapack
      version-control
+     web
      yaml
+
+     ;; Private layers.
+     aldanor
      )
    dotspacemacs-additional-packages '()
    dotspacemacs-excluded-packages '()
