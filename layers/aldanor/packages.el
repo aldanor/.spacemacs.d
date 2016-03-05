@@ -1,5 +1,6 @@
 (defvar aldanor-packages
   '(
+    cc-mode
     company
     evil
     flycheck
@@ -9,6 +10,12 @@
     ))
 
 (defvar aldanor-excluded-packages '())
+
+(defun aldanor/post-init-cc-mode ()
+  (add-hook 'c++-mode-hook
+            (lambda ()
+              (setq company-clang-arguments '("-std=c++11")
+                    flycheck-clang-language-standard "c++11"))))
 
 (defun aldanor/post-init-company ()
   (add-hook 'evil-normal-state-entry-hook 'company-abort))
