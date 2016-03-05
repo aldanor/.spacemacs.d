@@ -40,8 +40,8 @@
 (defun aldanor/post-init-python ()
   (add-hook 'python-mode-hook
             (lambda () (progn
-                         (setq-local comment-inline-offset 2
-                                     comment-column 4
-                                     indent-tabs-mode nil
+                         (set (make-local-variable 'comment-inline-offset) 2)
+                         (set (make-local-variable 'comment-column) 4)
+                         (setq-local indent-tabs-mode nil
                                      python-indent-offset 4)
                          (modify-syntax-entry ?_ "w")))))
