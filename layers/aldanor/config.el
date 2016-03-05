@@ -4,6 +4,8 @@
               c-basic-offset 4
               c-default-style "linux")
 
+(prefer-coding-system 'utf-8)
+
 (add-hook 'prog-mode-hook
           (lambda () (setq-local require-final-newline t)))
 
