@@ -18,7 +18,6 @@
      dash
      deft
      emacs-lisp
-     evil-commentary
      eyebrowse
      (git :variables
           git-magit-status-fullscreen t
