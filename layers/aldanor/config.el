@@ -1,6 +1,8 @@
 (setq-default fill-column 99
               line-spacing 0.1
-              sentence-end-double-space t)
+              sentence-end-double-space t
+              c-basic-offset 4
+              c-default-style "linux")
 
 (add-hook 'prog-mode-hook
           (lambda () (setq-local require-final-newline t)))
