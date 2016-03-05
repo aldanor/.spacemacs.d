@@ -11,7 +11,7 @@
 (setq make-backup-files t
       backup-directory-alist `(("" . "~/.emacs.d/cache/backups/save"))
       vc-make-backup-files t
-      setq version-control t
+      version-control t
       kept-new-versions 10
       kept-old-versions 0
       delete-old-versions t

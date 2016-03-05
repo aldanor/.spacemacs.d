@@ -3,10 +3,7 @@
   (setq-default
    dotspacemacs-distribution 'spacemacs
    dotspacemacs-enable-lazy-installation nil
-   dotspacemacs-configuration-layer-path
-   '(
-     list (expand-file-name "layers/" dotspacemacs-directory)
-     )
+   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
    dotspacemacs-configuration-layers
    '(
      ;; Spacemacs layers.

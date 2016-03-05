@@ -35,7 +35,7 @@
                                  "^\\(htmlcov\\|node_modules\\)$" "\\.elcs$"
                                  "^\\.coverage\\..*" "\\.ipynb.*$" "\\.py[cod]$"
                                  "~$" "^#.*#$" "^\\.#.*$" "^__pycache__$"
-                                 "\\.egg\-info$"))
+                                 "\\.egg\-info$")))
 
 (defun aldanor/post-init-python ()
   (add-hook 'python-mode-hook
