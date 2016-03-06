@@ -14,6 +14,13 @@
 (add-hook 'focus-out-hook
           (lambda () (save-some-buffers t)))
 
+(ignore-errors
+  (require 'ansi-color)
+  (add-hook 'compilation-filter-hook
+            (lambda ()
+              (when (eq major-mode 'compilation-mode)
+                (ansi-color-apply-on-region compilation-filter-start (point-max))))))
+
 (setq make-backup-files t
       backup-directory-alist `(("" . "~/.emacs.d/cache/backups/save"))
       vc-make-backup-files t
