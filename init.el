@@ -41,7 +41,6 @@
      syntax-checking
      themes-megapack
      version-control
-     web
      yaml
 
      ;; Private layers.
