@@ -11,11 +11,15 @@
 
 (defvar aldanor-excluded-packages '())
 
+(defun set-word-boundaries ()
+  (modify-syntax-entry ?_ "w"))
+
 (defun aldanor/post-init-cc-mode ()
   (add-hook 'c++-mode-hook
-            (lambda ()
-              (setq company-clang-arguments '("-std=c++11")
-                    flycheck-clang-language-standard "c++11"))))
+            (lambda () (and
+                        (set-word-boundaries)
+                        (setq company-clang-arguments '("-std=c++11")
+                              flycheck-clang-language-standard "c++11")))))
 
 (defun aldanor/post-init-company ()
   (add-hook 'evil-normal-state-entry-hook 'company-abort))
@@ -30,9 +34,7 @@
         flycheck-check-syntax-automatically '(mode-enabled save idle-change)))
 
 (defun aldanor/post-init-js2-mode ()
-  (add-hook 'js2-mode-hook
-            (lambda () (progn
-                         (modify-syntax-entry ?_ "w")))))
+  (add-hook 'js2-mode-hook 'set-word-boundaries))
 
 (defun aldanor/post-init-neotree ()
   (setq neo-theme 'nerd
@@ -45,9 +47,9 @@
 
 (defun aldanor/post-init-python ()
   (add-hook 'python-mode-hook
-            (lambda () (progn
-                         (set (make-local-variable 'comment-inline-offset) 2)
-                         (set (make-local-variable 'comment-column) 4)
-                         (setq-local indent-tabs-mode nil
-                                     python-indent-offset 4)
-                         (modify-syntax-entry ?_ "w")))))
+            (lambda () (and
+                        (set (make-local-variable 'comment-inline-offset) 2)
+                        (set (make-local-variable 'comment-column) 4)
+                        (setq-local indent-tabs-mode nil
+                                    python-indent-offset 4)
+                        (set-word-boundaries)))))
