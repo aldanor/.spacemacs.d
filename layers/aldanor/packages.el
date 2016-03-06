@@ -16,10 +16,10 @@
 
 (defun aldanor/post-init-cc-mode ()
   (add-hook 'c++-mode-hook
-            (lambda () (and
-                        (set-word-boundaries)
-                        (setq company-clang-arguments '("-std=c++11")
-                              flycheck-clang-language-standard "c++11")))))
+            (lambda () (progn
+                         (set-word-boundaries)
+                         (setq company-clang-arguments '("-std=c++11")
+                               flycheck-clang-language-standard "c++11")))))
 
 (defun aldanor/post-init-company ()
   (add-hook 'evil-normal-state-entry-hook 'company-abort))
@@ -47,9 +47,9 @@
 
 (defun aldanor/post-init-python ()
   (add-hook 'python-mode-hook
-            (lambda () (and
-                        (set (make-local-variable 'comment-inline-offset) 2)
-                        (set (make-local-variable 'comment-column) 4)
-                        (setq-local indent-tabs-mode nil
-                                    python-indent-offset 4)
-                        (set-word-boundaries)))))
+            (lambda () (progn
+                         (set (make-local-variable 'comment-inline-offset) 2)
+                         (set (make-local-variable 'comment-column) 4)
+                         (setq-local indent-tabs-mode nil
+                                     python-indent-offset 4)
+                         (set-word-boundaries)))))
