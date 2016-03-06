@@ -2,6 +2,11 @@
               line-spacing 0.1
               sentence-end-double-space t)
 
+(setq frame-title-format
+      '("emacs%@" (:eval (system-name)) ": "
+        (:eval (if (buffer-file-name) (abbreviate-file-name (buffer-file-name)) "%b"))
+        " [%*]"))
+
 (setq c-default-style "bsd"
       c-basic-offset 4)
 (c-set-offset 'member-init-intro 0)
