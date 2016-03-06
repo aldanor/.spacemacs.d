@@ -1,8 +1,10 @@
 (setq-default fill-column 99
               line-spacing 0.1
-              sentence-end-double-space t
-              c-basic-offset 4
-              c-default-style "linux")
+              sentence-end-double-space t)
+
+(setq c-default-style "bsd"
+      c-basic-offset 4)
+(c-set-offset 'member-init-intro 0)
 
 (prefer-coding-system 'utf-8)
 
