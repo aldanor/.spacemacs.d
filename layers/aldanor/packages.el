@@ -33,7 +33,8 @@
 
 (defun aldanor/post-init-flycheck ()
   (setq flycheck-idle-change-delay (if flycheck-current-errors 0.25 5.0)
-        flycheck-check-syntax-automatically '(mode-enabled save idle-change)))
+        flycheck-check-syntax-automatically '(mode-enabled save idle-change))
+  (setq-default flycheck-flake8-maximum-line-length 99))
 
 (defun aldanor/post-init-js2-mode ()
   (add-hook 'js2-mode-hook 'set-word-boundaries))
