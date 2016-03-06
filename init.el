@@ -247,7 +247,13 @@
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup 'trailing
-   ))
+   )
+
+  (when (eq system-type 'windows-nt)
+    (setq-default
+     dotspacemacs-smooth-scrolling nil
+     dotspacemacs-line-numbers t))
+)
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
