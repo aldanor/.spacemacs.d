@@ -5,6 +5,7 @@
 (setq c-default-style "bsd"
       c-basic-offset 4)
 (c-set-offset 'member-init-intro 0)
+(c-set-offset 'innamespace 0)
 
 (prefer-coding-system 'utf-8)
 
