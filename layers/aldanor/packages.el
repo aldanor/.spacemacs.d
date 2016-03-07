@@ -7,6 +7,7 @@
     js2-mode
     neotree
     python
+    speed-type
     ))
 
 (defvar aldanor-excluded-packages '())
@@ -56,3 +57,5 @@
                          (setq-local indent-tabs-mode nil
                                      python-indent-offset 4)
                          (set-word-boundaries)))))
+
+(defun aldanor/init-speed-type () ())
