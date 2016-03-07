@@ -2,6 +2,7 @@
   '(
     cc-mode
     company
+    deft
     evil
     flycheck
     js2-mode
@@ -26,6 +27,9 @@
 
 (defun aldanor/post-init-company ()
   (add-hook 'evil-normal-state-entry-hook 'company-abort))
+
+(defun aldanor/post-init-deft ()
+  (setq deft-directory "~/notes"))
 
 (defun aldanor/post-init-evil ()
   (setq evil-move-cursor-back nil
