@@ -1,4 +1,4 @@
-; -*- coding: utf-8 -*-
+;; -*- coding: utf-8 -*-
 
 (defun dotspacemacs/layers ()
   (setq-default
@@ -254,7 +254,7 @@
     (setq-default
      dotspacemacs-smooth-scrolling nil
      dotspacemacs-line-numbers t))
-)
+  )
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
