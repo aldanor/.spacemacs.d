@@ -14,6 +14,10 @@
 (c-set-offset 'member-init-intro 0)
 (c-set-offset 'innamespace 0)
 
+(set-language-environment 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-selection-coding-system 'utf-8)
+(set-locale-environment "en.UTF-8")
 (prefer-coding-system 'utf-8)
 
 (add-hook 'prog-mode-hook
