@@ -7,8 +7,6 @@
         (:eval (if (buffer-file-name) (abbreviate-file-name (buffer-file-name)) "%b"))
         " [%*]"))
 
-(add-to-list 'recentf-exclude "/speed-type/")
-
 (setq c-default-style "bsd"
       c-basic-offset 4)
 (c-set-offset 'member-init-intro 0)

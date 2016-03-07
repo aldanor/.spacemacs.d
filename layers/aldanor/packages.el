@@ -8,6 +8,7 @@
     js2-mode
     neotree
     python
+    recentf
     speed-type
     ))
 
@@ -61,5 +62,11 @@
                          (setq-local indent-tabs-mode nil
                                      python-indent-offset 4)
                          (set-word-boundaries)))))
+
+(defun aldanor/pre-init-recentf ()
+  (spacemacs|use-package-add-hook recentf
+    :post-config
+    (progn
+      (add-to-list 'recentf-exclude "/speed-type/"))))
 
 (defun aldanor/init-speed-type () ())
