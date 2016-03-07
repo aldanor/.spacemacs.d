@@ -1,3 +1,5 @@
+; -*- coding: utf-8 -*-
+
 (setq-default fill-column 99
               line-spacing 0.1
               sentence-end-double-space t)

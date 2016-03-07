@@ -1,3 +1,5 @@
+; -*- coding: utf-8 -*-
+
 (defvar aldanor-packages
   '(
     cc-mode

@@ -1,3 +1,4 @@
+; -*- coding: utf-8 -*-
 
 (defun dotspacemacs/layers ()
   (setq-default
