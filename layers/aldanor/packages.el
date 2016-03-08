@@ -9,6 +9,7 @@
     flycheck
     js2-mode
     neotree
+    org
     python
     recentf
     speed-type
@@ -55,6 +56,10 @@
                                  "^\\.coverage\\..*" "\\.ipynb.*$" "\\.py[cod]$"
                                  "~$" "^#.*#$" "^\\.#.*$" "^__pycache__$"
                                  "\\.egg\-info$")))
+
+(defun aldanor/post-init-org ()
+  (setq org-startup-indented t
+        org-startup-folded nil))
 
 (defun aldanor/post-init-python ()
   (add-hook 'python-mode-hook
