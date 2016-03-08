@@ -58,8 +58,10 @@
                                  "\\.egg\-info$")))
 
 (defun aldanor/post-init-org ()
-  (setq org-startup-indented t
-        org-startup-folded nil))
+  (setq org-startup-folded nil)
+  (add-hook 'org-mode-hook
+            (lambda () (progn
+                         (spacemacs/toggle-visual-line-navigation-on)))))
 
 (defun aldanor/post-init-python ()
   (add-hook 'python-mode-hook
