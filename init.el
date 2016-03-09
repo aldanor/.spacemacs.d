@@ -6,52 +6,55 @@
    dotspacemacs-enable-lazy-installation nil
    dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
    dotspacemacs-configuration-layers
-   '(
-     ;; Spacemacs layers.
-     (auto-completion :variables
-                      auto-completion-enable-sort-by-usage t)
-     (c-c++ :variables
-            c-c++-default-mode-for-headers 'c++-mode
-            c-c++-enable-clang-support t)
-     csv
-     deft
-     emacs-lisp
-     eyebrowse
-     (git :variables
-          git-magit-status-fullscreen t
-          magit-save-repository-buffers 'dontask
-          magit-revision-show-gravatars nil)
-     (github :variables
-             gh-profile-default-profile "aldanor")
-     html
-     javascript
-     markdown
-     org
-     (python :variables
-             python-fill-column 99
-             python-test-runner 'pytest)
-     rust
-     search-engine
-     (shell :variables
-            shell-default-shell 'eshell
-            shell-enable-smart-eshell t)
-     shell-scripts
-     spacemacs-helm
-     syntax-checking
-     themes-megapack
-     version-control
-     yaml
+   (append
+    '(
+      ;; Spacemacs layers.
+      (auto-completion :variables
+                       auto-completion-enable-sort-by-usage t)
+      (c-c++ :variables
+             c-c++-default-mode-for-headers 'c++-mode
+             c-c++-enable-clang-support t)
+      csv
+      deft
+      emacs-lisp
+      eyebrowse
+      (git :variables
+           git-magit-status-fullscreen t
+           magit-save-repository-buffers 'dontask
+           magit-revision-show-gravatars nil)
+      (github :variables
+              gh-profile-default-profile "aldanor")
+      html
+      javascript
+      markdown
+      org
+      (python :variables
+              python-fill-column 99
+              python-test-runner 'pytest)
+      rust
+      search-engine
+      (shell :variables
+             shell-default-shell 'eshell
+             shell-enable-smart-eshell t)
+      shell-scripts
+      spacemacs-helm
+      syntax-checking
+      themes-megapack
+      version-control
+      yaml
 
-     ;; Private layers.
-     aldanor
-     )
+      ;; Private layers.
+      aldanor
+      )
+
+    ;; OS X layers.
+    (if (eq system-type 'darwin)
+        '(dash osx)
+      '())
+    )
    dotspacemacs-additional-packages '()
    dotspacemacs-excluded-packages '()
    dotspacemacs-delete-orphan-packages t)
-
-  (when (eq system-type 'darwin)
-    (setq dotspacemacs-configuration-layers
-          (append 'dotspacemacs-configuration-layers '(dash osx))))
   )
 
 (defun dotspacemacs/init ()
