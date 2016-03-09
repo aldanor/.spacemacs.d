@@ -14,7 +14,6 @@
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t)
      csv
-     dash
      deft
      emacs-lisp
      eyebrowse
@@ -28,7 +27,6 @@
      javascript
      markdown
      org
-     osx
      (python :variables
              python-fill-column 99
              python-test-runner 'pytest)
@@ -49,7 +47,12 @@
      )
    dotspacemacs-additional-packages '()
    dotspacemacs-excluded-packages '()
-   dotspacemacs-delete-orphan-packages t))
+   dotspacemacs-delete-orphan-packages t)
+
+  (when (eq system-type 'darwin)
+    (setq dotspacemacs-configuration-layers
+          (append 'dotspacemacs-configuration-layers '(dash osx))))
+  )
 
 (defun dotspacemacs/init ()
   (setq-default
