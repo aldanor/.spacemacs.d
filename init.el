@@ -253,7 +253,11 @@
   (when (eq system-type 'windows-nt)
     (setq-default
      dotspacemacs-smooth-scrolling nil
-     dotspacemacs-line-numbers t))
+     dotspacemacs-line-numbers t
+     dotspacemacs-elpa-https nil
+     dotspacemacs-default-font '("DejaVu Sans Mono"
+                                 :size 15
+                                 :powerline-scale 1.2)))
   )
 
 (defun dotspacemacs/user-init ()
