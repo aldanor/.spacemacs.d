@@ -7,6 +7,7 @@
     deft
     evil
     flycheck
+    jinja2-mode
     js2-mode
     neotree
     org
@@ -39,6 +40,10 @@
   (setq evil-move-cursor-back nil
         evil-want-visual-char-semi-exclusive t
         evil-insert-state-cursor '(bar "#6acb25")))
+
+(defun aldanor/init-jinja2-mode ()
+  (setq-default sgml-basic-offset 4)
+  (add-to-list 'auto-mode-alist '("\\.tmpl\\'" . jinja2-mode)))
 
 (defun aldanor/post-init-flycheck ()
   (setq flycheck-idle-change-delay (if flycheck-current-errors 0.25 5.0)
