@@ -9,6 +9,7 @@
     flycheck
     jinja2-mode
     js2-mode
+    mmm-mode
     neotree
     org
     python
@@ -52,6 +53,42 @@
 
 (defun aldanor/post-init-js2-mode ()
   (add-hook 'js2-mode-hook 'set-word-boundaries))
+
+(defun aldanor/pre-init-mmm-mode ()
+  (message-box "pre-init")
+  (use-package mmm-mode
+   :defer t
+    ; :commands
+    ; mmm-parse-buffer
+    ; :post-init
+    ; (spacemacs/set-leader-keys-for-major-mode 'jinja2-c++-mode "cs" 'mmm-parse-buffer)
+    ; :post-init
+    ; (message-box ":post-init")
+    :config
+    (progn
+      (require 'mmm-auto)
+      (require 'mmm-compat)
+      (require 'mmm-vars)
+      (message-box ":post-config")
+      (mmm-add-group
+       'jinja2
+       `((jinja2-variable
+          :submode jinja2-mode :face mmm-code-submode-face :front "{{" :back "}}"
+          :insert ((?{ jinja2-{{-}} nil @ "{{" @ " " _ " " @ "}}" @)))
+         (jinja2-comment
+          :submode jinja2-mode :face mmm-comment-submode-face :front "{#" :back "#}"
+          :insert ((?# jinja2-comment nil @ "{#" @ " " _ " " @ "#}" @)))
+         (jinja2-block
+          :submode jinja2-mode :face mmm-code-submode-face :front "{%" :back "%}"
+          :insert ((?% jinja2-{%-%} nil @ "{%" @ " " _ " " @ "%}" @)))))
+      (add-hook 'mmm-jinja2-class-hook
+                (lambda () (setq mmm-buffer-mode-display-name "Jinja2")))
+      (define-derived-mode jinja2-c++-mode c++-mode "Jinja2/C++"
+        (setq tab-width 4
+              indent-tabs-mode nil
+              mmm-global-mode 'maybe)
+        (mmm-add-mode-ext-class 'jinja2-c++-mode "\\.tmpl\\.cpp\\'" 'jinja2))
+      (add-to-list 'auto-mode-alist '("\\.tmpl\\.cpp\\'" . jinja2-c++-mode)))))
 
 (defun aldanor/post-init-neotree ()
   (setq neo-theme 'nerd
