@@ -50,12 +50,13 @@
 
 (defun aldanor/post-init-neotree ()
   (setq neo-theme 'nerd
-        neo-hidden-regexp-list '("^\\.\\(git\\|cache\\|tox\\|coverage\\)$"
-                                 "^\\.\\(DS_Store\\|python\\-version\\)"
-                                 "^\\(htmlcov\\|node_modules\\)$" "\\.elcs$"
-                                 "^\\.coverage\\..*" "\\.ipynb.*$" "\\.py[cod]$"
-                                 "~$" "^#.*#$" "^\\.#.*$" "^__pycache__$"
-                                 "\\.egg\-info$")))
+        neo-hidden-regexp-list
+        '("^\\.\\(git\\|cache\\|tox\\|coverage\\)$"
+          "^\\.\\(DS_Store\\|python\\-version\\)"
+          "^\\(htmlcov\\|node_modules\\)$" "\\.elcs$"
+          "^\\.coverage\\..*" "\\.ipynb.*$" "\\.py[cod]$"
+          "~$" "^#.*#$" "^\\.#.*$" "^__pycache__$"
+          "\\.egg\-info$")))
 
 (defun aldanor/post-init-org ()
   (setq org-startup-folded nil)
