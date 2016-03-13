@@ -71,12 +71,13 @@
 
 (defun aldanor/post-init-python ()
   (add-hook 'python-mode-hook
-            (lambda () (progn
-                         (set (make-local-variable 'comment-inline-offset) 2)
-                         (set (make-local-variable 'comment-column) 4)
-                         (setq-local indent-tabs-mode nil
-                                     python-indent-offset 4)
-                         (set-word-boundaries)))))
+            (lambda ()
+              (progn
+                (setq-local indent-tabs-mode nil)
+                (setq-local python-indent-offset 4)
+                (set (make-local-variable 'comment-inline-offset) 2)
+                (set (make-local-variable 'comment-column) 4)
+                (set-word-boundaries)))))
 
 (defun aldanor/pre-init-recentf ()
   (spacemacs|use-package-add-hook recentf
