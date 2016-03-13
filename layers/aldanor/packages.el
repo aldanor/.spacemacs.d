@@ -85,4 +85,6 @@
     (progn
       (add-to-list 'recentf-exclude "/speed-type/"))))
 
-(defun aldanor/init-speed-type () ())
+(defun aldanor/init-speed-type ()
+  (use-package speed-type
+    :defer t))
