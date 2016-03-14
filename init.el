@@ -279,4 +279,25 @@ in `dotspacemacs/user-config'."
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  )
+  (require 'mmm-auto)
+  (require 'mmm-compat)
+  (require 'mmm-vars)
+  (mmm-add-group
+   'jinja2
+   `((jinja2-variable
+      :submode jinja2-mode :face mmm-code-submode-face :front "{{" :back "}}"
+      :insert ((?{ jinja2-{{-}} nil @ "{{" @ " " _ " " @ "}}" @)))
+     (jinja2-comment
+      :submode jinja2-mode :face mmm-comment-submode-face :front "{#" :back "#}"
+      :insert ((?# jinja2-comment nil @ "{#" @ " " _ " " @ "#}" @)))
+     (jinja2-block
+      :submode jinja2-mode :face mmm-code-submode-face :front "{%" :back "%}"
+      :insert ((?% jinja2-{%-%} nil @ "{%" @ " " _ " " @ "%}" @)))))
+  (defun mmm-jinja2-set-mode-line ()
+    (setq mmm-buffer-mode-display-name "Jinja2"))
+  (add-hook 'mmm-jinja2-class-hook 'mmm-jinja2-set-mode-line)
+  (define-derived-mode jinja2-c++-mode c++-mode "Jinja2/C++"
+    (setq tab-width 4
+          mmm-global-mode 'maybe)
+    (mmm-add-mode-ext-class 'jinja2-c++-mode "\\.tmpl\\.cpp\\'" 'jinja2))
+  (add-to-list 'auto-mode-alist '("\\.tmpl\\.cpp\\'" . jinja2-c++-mode)))
