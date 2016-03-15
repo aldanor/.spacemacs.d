@@ -26,6 +26,7 @@
               gh-profile-default-profile "aldanor")
       html
       javascript
+      ipython-notebook
       markdown
       org
       (python :variables
