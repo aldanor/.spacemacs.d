@@ -5,6 +5,7 @@
     cc-mode
     company
     deft
+    ein
     evil
     flycheck
     jinja2-mode
@@ -35,6 +36,9 @@
 
 (defun aldanor/post-init-deft ()
   (setq deft-directory "~/notes"))
+
+(defun aldanor/post-init-ein ()
+  (add-hook 'ein:notebook-multilang-mode-hook 'smartparens-mode))
 
 (defun aldanor/post-init-evil ()
   (setq evil-move-cursor-back nil
