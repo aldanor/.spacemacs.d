@@ -5,6 +5,9 @@
               line-spacing 0.1
               sentence-end-double-space t)
 
+;; Set default frame size and position.
+(setq default-frame-alist '((top . 0) (left . 0) (width . 110) (height . 64)))
+
 ;; Customize frame title format.
 (setq frame-title-format
       '("emacs%@" (:eval (system-name)) ": "
