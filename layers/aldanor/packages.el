@@ -43,7 +43,14 @@
 (defun aldanor/post-init-evil ()
   (setq evil-move-cursor-back nil
         evil-want-visual-char-semi-exclusive t
-        evil-insert-state-cursor '(bar "#6acb25")))
+        evil-insert-state-cursor '(bar "#6acb25"))
+  (add-hook 'evil-insert-state-exit-hook
+            (lambda () (if (buffer-file-name) (save-buffer))))
+  (evil-define-operator evil-destroy (beg end type register yank-handler)
+    "Evil operator that destroys text without yanking. "
+    (evil-delete beg end type 95 yank-handler))
+  (define-key evil-normal-state-map "Q" 'evil-destroy)
+  (define-key evil-visual-state-map "Q" 'evil-destroy))
 
 (defun aldanor/init-jinja2-mode ()
   (setq-default sgml-basic-offset 4)
