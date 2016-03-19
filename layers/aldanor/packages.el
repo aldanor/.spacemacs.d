@@ -20,13 +20,13 @@
 
 (defvar aldanor-excluded-packages '())
 
-(defun set-word-boundaries ()
+(defun aldanor/set-word-boundaries ()
   (modify-syntax-entry ?_ "w"))
 
 (defun aldanor/post-init-cc-mode ()
   (add-hook 'c++-mode-hook
             (lambda () (progn
-                         (set-word-boundaries)
+                         (aldanor/set-word-boundaries)
                          (set (make-local-variable 'compile-command)
                               (concat "g++ -std=c++11 -Wall " buffer-file-name " && ./a.out"))
                          (setq company-clang-arguments '("-std=c++11")
@@ -63,7 +63,7 @@
   (setq-default flycheck-flake8-maximum-line-length 99))
 
 (defun aldanor/post-init-js2-mode ()
-  (add-hook 'js2-mode-hook 'set-word-boundaries))
+  (add-hook 'js2-mode-hook 'aldanor/set-word-boundaries))
 
 (defun aldanor/post-init-neotree ()
   (setq neo-theme 'nerd
@@ -89,7 +89,7 @@
                 (setq-local python-indent-offset 4)
                 (set (make-local-variable 'comment-inline-offset) 2)
                 (set (make-local-variable 'comment-column) 4)
-                (set-word-boundaries)))))
+                (aldanor/set-word-boundaries)))))
 
 (defun aldanor/pre-init-recentf ()
   (spacemacs|use-package-add-hook recentf
@@ -98,7 +98,7 @@
       (add-to-list 'recentf-exclude "/speed-type/"))))
 
 (defun aldanor/post-init-rust-mode ()
-  (add-hook 'rust-mode-hook 'set-word-boundaries))
+  (add-hook 'rust-mode-hook 'aldanor/set-word-boundaries))
 
 (defun aldanor/init-speed-type ()
   (use-package speed-type
