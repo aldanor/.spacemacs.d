@@ -2,6 +2,7 @@
 
 (defvar aldanor-packages
   '(
+    ample-theme
     cc-mode
     company
     deft
@@ -22,6 +23,13 @@
 
 (defun aldanor/set-word-boundaries ()
   (modify-syntax-entry ?_ "w"))
+
+(defun aldanor/post-init-ample-theme ()
+    (custom-theme-set-faces
+     'ample
+     '(font-lock-string-face ((t (:foreground "#057f40")))) ;; ample/dark-green
+     '(js2-function-param ((t (:foreground "#baba36"))))    ;; ample/yellow
+     '(js2-object-property ((t (:foreground "#dF9522")))))) ;; ample/orange
 
 (defun aldanor/post-init-cc-mode ()
   (add-hook 'c++-mode-hook
