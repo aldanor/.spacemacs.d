@@ -14,6 +14,7 @@
     org
     python
     recentf
+    rust-mode
     speed-type
     ))
 
@@ -95,6 +96,9 @@
     :post-config
     (progn
       (add-to-list 'recentf-exclude "/speed-type/"))))
+
+(defun aldanor/post-init-rust-mode ()
+  (add-hook 'rust-mode-hook 'set-word-boundaries))
 
 (defun aldanor/init-speed-type ()
   (use-package speed-type
