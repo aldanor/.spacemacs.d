@@ -273,7 +273,9 @@
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
-  )
+  ;; Spacemacs theme adjustments; look like these have to go in user-init.
+  (setq spacemacs-theme-comment-bg nil
+        spacemacs-theme-org-height nil))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
