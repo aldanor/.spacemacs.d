@@ -1,9 +1,7 @@
 ;; -*- coding: utf-8 -*-
 
 ;; Spacemacs-specific configuration.
-(setq spacemacs-theme-comment-bg nil
-      spacemacs-theme-org-height nil
-      theming-modifications
+(setq theming-modifications
       '((ample
          (font-lock-string-face :foreground "#057f40") ; ample/dark-green
          (js2-function-param :foreground "#baba36")    ; ample/yellow
