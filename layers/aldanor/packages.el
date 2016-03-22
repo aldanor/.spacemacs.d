@@ -3,6 +3,7 @@
 (defvar aldanor-packages
   '(
     cc-mode
+    column-enforce-mode
     company
     deft
     ein
@@ -33,6 +34,10 @@
                          (setq company-clang-arguments '("-std=c++11")
                                flycheck-clang-language-standard "c++11")))))
 
+(defun aldanor/post-init-column-enforce-mode ()
+  (setq column-enforce-column 99)
+  (add-hook 'prog-mode-hook 'column-enforce-mode))
+  
 (defun aldanor/post-init-company ()
   (add-hook 'evil-normal-state-entry-hook 'company-abort))
 
