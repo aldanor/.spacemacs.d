@@ -32,7 +32,8 @@
                          (set (make-local-variable 'compile-command)
                               (concat "g++ -std=c++11 -Wall " buffer-file-name " && ./a.out"))
                          (setq company-clang-arguments '("-std=c++11")
-                               flycheck-clang-language-standard "c++11")))))
+                               flycheck-clang-language-standard "c++11"
+                               flycheck-gcc-language-standard "c++11")))))
 
 (defun aldanor/post-init-column-enforce-mode ()
   (setq column-enforce-column 99)
