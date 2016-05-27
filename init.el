@@ -24,6 +24,7 @@
            magit-revision-show-gravatars nil)
       (github :variables
               gh-profile-default-profile "aldanor")
+      gtags
       html
       javascript
       ipython-notebook
