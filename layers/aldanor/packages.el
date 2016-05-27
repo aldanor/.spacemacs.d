@@ -1,27 +1,5 @@
 ;; -*- coding: utf-8 -*-
 
-(defvar aldanor-packages
-  '(
-    cc-mode
-    column-enforce-mode
-    company
-    deft
-    ein
-    evil
-    flycheck
-    jinja2-mode
-    js2-mode
-    neotree
-    org
-    python
-    recentf
-    rust-mode
-    speed-type
-    theming
-    ))
-
-(defvar aldanor-excluded-packages '())
-
 (defun aldanor/set-word-boundaries ()
   (modify-syntax-entry ?_ "w"))
 
