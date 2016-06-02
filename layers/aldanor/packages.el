@@ -1,6 +1,6 @@
 ;; -*- coding: utf-8 -*-
 
-(defvar aldanor-packages
+(setq aldanor-packages
   '(
     cc-mode
     column-enforce-mode
