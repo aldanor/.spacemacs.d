@@ -3,7 +3,8 @@
 (defun dotspacemacs/layers ()
   (setq-default
    dotspacemacs-distribution 'spacemacs
-   dotspacemacs-enable-lazy-installation nil
+   dotspacemacs-enable-lazy-installation 'unused
+   dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
    dotspacemacs-configuration-layers
    (append
@@ -17,7 +18,6 @@
       csv
       deft
       emacs-lisp
-      eyebrowse
       (git :variables
            git-magit-status-fullscreen t
            magit-save-repository-buffers 'dontask
@@ -25,6 +25,7 @@
       (github :variables
               gh-profile-default-profile "aldanor")
       ;; gtags
+      helm
       html
       javascript
       ipython-notebook
@@ -39,7 +40,6 @@
              shell-default-shell 'eshell
              shell-enable-smart-eshell t)
       shell-scripts
-      spacemacs-helm
       syntax-checking
       themes-megapack
       theming
@@ -57,7 +57,14 @@
     )
    dotspacemacs-additional-packages '()
    dotspacemacs-excluded-packages '()
-   dotspacemacs-delete-orphan-packages t)
+   ;; Defines the behaviour of Spacemacs when downloading packages.
+   ;; Possible values are `used', `used-but-keep-unused' and `all'. `used' will
+   ;; download only explicitly used packages and remove any unused packages as
+   ;; well as their dependencies. `used-but-keep-unused' will download only the
+   ;; used packages but won't delete them if they become unused. `all' will
+   ;; download all the packages regardless if they are used or not and packages
+   ;; won't be deleted by Spacemacs. (default is `used')
+   dotspacemacs-download-packages 'used)
   )
 
 (defun dotspacemacs/init ()
@@ -107,7 +114,6 @@
                          colorsarenice-dark
                          apropospriate-dark
                          tsdh-dark
-                         gruber-dark
                          sanityinc-solarized-dark
                          zenburn
                          ample-zen
@@ -152,6 +158,9 @@
    dotspacemacs-distinguish-gui-tab nil
    ;; If non nil `Y' is remapped to `y$' in Evil states. (default nil)
    dotspacemacs-remap-Y-to-y$ nil
+   ;; If non-nil, the shift mappings `<' and `>' retain visual state if used
+   ;; there. (default t)
+   dotspacemacs-retain-visual-state-on-shift t
    ;; If non nil, inverse the meaning of `g' in `:substitute' Evil ex-command.
    ;; (default nil)
    dotspacemacs-ex-substitute-global nil
@@ -170,10 +179,6 @@
    dotspacemacs-auto-save-file-location 'cache
    ;; Maximum number of rollback slots to keep in the cache. (default 5)
    dotspacemacs-max-rollback-slots 5
-   ;; If non nil then `ido' replaces `helm' for some commands. For now only
-   ;; `find-files' (SPC f f), `find-spacemacs-file' (SPC f e s), and
-   ;; `find-contrib-file' (SPC f e c) are replaced. (default nil)
-   dotspacemacs-use-ido nil
    ;; If non nil, `helm' will try to minimize the space it uses. (default nil)
    dotspacemacs-helm-resize nil
    ;; if non nil, the helm header is hidden when there is only one source.
@@ -229,13 +234,16 @@
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
    dotspacemacs-line-numbers 'relative
+   ;; Code folding method. Possible values are `evil' and `origami'.
+   ;; (default 'evil)
+   dotspacemacs-folding-method 'evil
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
-   ;; over any automatically added closing parenthesis, bracket, quote, etc…
+   ;; over any automatically added closing parenthesis, bracket, quote, etc
    ;; This can be temporary disabled by pressing `C-q' before `)'. (default nil)
-   dotspacemacs-smart-closing-parenthesis nil  ;; syl20bnr/spacemacs#5491 
+   dotspacemacs-smart-closing-parenthesis nil  ;; syl20bnr/spacemacs#5491
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
    ;; emphasis the current one). (default 'all)
@@ -259,14 +267,16 @@
    dotspacemacs-whitespace-cleanup 'trailing
    )
 
+  (when (or (string-match-p ".+99d" (downcase (system-name)))
+            (string-match-p "dub.+" (downcase (system-name))))
+    (setq-default
+     dotspacemacs-mode-line-unicode-symbols nil
+     dotspacemacs-elpa-https nil
+     dotspacemacs-default-font '("DejaVu Sans Mono" :size 15 :powerline-scale 1.2)))
   (when (eq system-type 'windows-nt)
     (setq-default
      dotspacemacs-smooth-scrolling nil
-     dotspacemacs-line-numbers t
-     dotspacemacs-elpa-https nil
-     dotspacemacs-default-font '("DejaVu Sans Mono"
-                                 :size 15
-                                 :powerline-scale 1.2)))
+     dotspacemacs-line-numbers t))
   )
 
 (defun dotspacemacs/user-init ()
