@@ -32,6 +32,7 @@
       markdown
       org
       (python :variables
+              python-tab-width 4
               python-fill-column 99
               python-test-runner 'pytest)
       rust
