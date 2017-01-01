@@ -17,9 +17,8 @@
     recentf
     rust-mode
     speed-type
-    theming
     ))
-    
+
 (defun aldanor/set-word-boundaries ()
   (modify-syntax-entry ?_ "w"))
 
@@ -37,7 +36,7 @@
 (defun aldanor/post-init-column-enforce-mode ()
   (setq column-enforce-column 99)
   (add-hook 'prog-mode-hook 'column-enforce-mode))
-  
+
 (defun aldanor/post-init-company ()
   (add-hook 'evil-normal-state-entry-hook 'company-abort))
 
