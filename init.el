@@ -305,6 +305,12 @@
     (setq-default
      dotspacemacs-smooth-scrolling nil
      dotspacemacs-line-numbers t))
+  (when (and (display-graphic-p) (eq system-type 'darwin))
+    (progn
+      (setq shell-file-name "/bin/bash")
+      (with-eval-after-load 'exec-path-from-shell
+        (exec-path-from-shell-setenv "SHELL" "/bin/bash")))
+    )
   )
 
 (defun dotspacemacs/user-init ()
